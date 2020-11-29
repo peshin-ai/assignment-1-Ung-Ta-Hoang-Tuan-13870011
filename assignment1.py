@@ -2,21 +2,34 @@
 Replace the contents of this module docstring with your own details
 Name: Ung Ta Hoang Tuan
 Date started: 29/11/2020
-GitHub URL: https://github.com/peshin-ai
+GitHub URL: https://github.com/peshin-ai/assignment-1-Ung-Ta-Hoang-Tuan-13870011
 """
 import csv
-#def Quit():
-
-# def Process(char):
-#     if char == "L":
-#         # TODO: changing it
-#         for i in range():
-
+def Close():
+    print("bye bye")
+def WatchedMovies():
+    pass
+def AddMovies():
+    pass
+def LoadMovies():
+    RawFile = open('movies.csv', 'r')
+    Csv_File = csv.reader(RawFile, delimiter=',')
+    Line = len(list(Csv_File))
+    print(Line)
+def Process(char):
+    if char == "L":
+        LoadMovies()
+    elif char == "A":
+        AddMovies()
+    elif char == "W":
+        WatchedMovies()
+    else:
+        Close()
 def Option():
-    char = input()
-    while char.upper() not in ["L","A","W","Q"]:
+    char = input().upper()
+    while char not in ["L","A","W","Q"]:
         char = input()
-    #Process(char)
+    Process(char)
 
 def Menu():
     print("L - List movies")
@@ -29,9 +42,10 @@ def main():
     """..."""
     print("Movies To Watch 1.0 - by Ung Ta Hoang Tuan")
     # TODO changing it
+    #global RawFile
     RawFile = open('movies.csv', 'r')
-    Csv_File = csv.reader(RawFile, delimiter=',')
 
+    Csv_File = csv.reader(RawFile, delimiter=',')
     Line = len(list(Csv_File))
     print("{} movies loaded".format(Line))
     Menu()
